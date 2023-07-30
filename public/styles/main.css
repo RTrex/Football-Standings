@@ -1,0 +1,85 @@
+body {
+    height: 100%;
+    background-image : url("https://images.template.net/106753/free-grass-football-background-9nnwx.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    height: 56vh;
+    color: #EFE1D1;
+}
+
+.size {
+ margin-top: 19rem;
+}
+
+#year {
+    padding:0.5rem;
+    border-radius: 0.8rem;
+}
+
+button{
+    padding: 10.5px 40px;
+    background: #000;
+    border:0;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-size: 12px;
+    letter-spacing: 3px;
+    position: relative;
+    transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+    display: block;
+    margin: 1px auto;
+    border-radius: 0.8rem;
+    width: 189px;
+  }
+
+  button::after,
+button::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+    opacity: 0;
+  transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+button::after{
+    width: 30px;
+    height: 1px;
+    background: white;
+    transform: translateX(-3px);
+    margin-top: 0px;
+}
+
+button::before{
+    content: "";
+    transform: rotate(-135deg) translateX(50%);
+    width: 11px;
+    height: 11px;
+    background: transparent;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+  margin-top: -1px;
+}
+
+
+button:hover{
+  padding: 15px 60px 15px 20px;
+}
+
+button:hover::after,
+button:hover::before{
+  opacity: 1;
+  right: 15px;
+}
