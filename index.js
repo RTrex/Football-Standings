@@ -6,7 +6,7 @@ const app = express();
 
 const port = 3000;
 
-const clientToken = process.env.API_KEY;
+const clientToken = process.env.API_KEy;
 
 app.use(express.static("public"));
 
