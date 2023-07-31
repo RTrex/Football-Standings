@@ -6,6 +6,8 @@ const app = express();
 
 const port = 3000;
 
+const clientToken = "46557011e371411a9d5f817ad379c808";
+
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,16 +16,26 @@ app.get("/", (req,res)=>{
     res.render("index.ejs");
 })
 
-const config = {
-    headers: { "X-Auth-Token":process.env.API_KEY},
-  };
+if (clientToken) {
+  axios.defaults.headers.common["X-Auth-Token"] = clientToken;
+} else {
+  delete axios.defaults.headers.common["X-Auth-Token"];
+}
+
+const header = {
+   headers: {
+     "content-type": "application/json"
+      }
+};
   
-  app.post("/", async (req, res) => {
+app.post("/", async (req, res) => {
     try {
       console.log(req.body);
       const year = req.body.year;
-      const result = await axios.get(`https://api.football-data.org/v4/competitions/PL/standings/?season=${year}`, config);
-      res.render("index.ejs", { });
+      const response = await axios.get(`https://api.football-data.org/v4/competitions/PL/standings/?season=${year}`, req.body, header);
+      const result = JSON.stringify(response.data); 
+      console.log(result);
+      res.render("index.ejs", {data:result});
     } catch (error) {
       res.status(404).send(error.message);
     }
