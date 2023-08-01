@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football-standings</title>
+    <link rel = "stylesheet" href = "styles/team.css">
+</head>
+<body>
+    <h2>Premier League Standings</h2>
+<div class = "top">    
+ <% if (locals.why) {%>
+  <div class = "position"> 
+    <ul>
+    <li>Pos</li>
+    </ul>
+    <% why.forEach(teams=>{%>
+         <ul>
+           <li><%= teams.position %></li>
+         </ul>   
+      <%})%>
+   </div>      
+  <div class = "name">
+    <ul>
+        <li>Club</li>
+    </ul>
+    <% why.forEach(teams=>{%>
+    <ul>
+      <li><img src =<%=teams.team.crest%>> <%= teams.team.name %></li>
+    </ul>   
+    <%})%>
+  </div> 
+  <div class = "matches"> 
+    <ul>
+        <li>MP</li>
+    </ul>
+    <% why.forEach(teams=>{%>
+         <ul>
+           <li><%= teams.playedGames %></li>
+         </ul>   
+      <%})%>
+  </div>  
+  <div class = "won">
+    <ul>
+        <li>W</li>
+    </ul>  
+    <% why.forEach(teams=>{%>
+         <ul>
+           <li><%= teams.won %></li>
+         </ul>   
+      <%})%>
+  </div> 
+  <div class = "draw">
+    <ul>
+        <li>D</li>
+    </ul> 
+    <% why.forEach(teams=>{%>
+         <ul>
+           <li><%= teams.draw %></li>
+         </ul>   
+      <%})%>
+  </div> 
+  <div class = "lost">
+    <ul>
+        <li>L</li>
+    </ul>  
+    <% why.forEach(teams=>{%>
+         <ul>
+           <li><%= teams.lost%></li>
+         </ul>   
+      <%})%>
+  </div> 
+  <div class = "goalsScored">
+    <ul>
+        <li>GF</li>
+    </ul>  
+    <% why.forEach(teams=>{%>
+         <ul>
+           <li><%= teams.goalsFor%></li>
+         </ul>   
+      <%})%>
+  </div> 
+  <div class = "goalsConceded">
+    <ul>
+        <li>GA</li>
+    </ul>  
+    <% why.forEach(teams=>{%>
+         <ul>
+           <li><%= teams.goalsAgainst%></li>
+         </ul>   
+      <%})%>
+  </div>
+  <div class = "goalsNet">
+    <ul>
+        <li>GD</li>
+    </ul>  
+    <% why.forEach(teams=>{%>
+         <ul>
+           <li><%= teams.goalDifference%></li>
+         </ul>   
+      <%})%>
+  </div>
+  <div class = "points">
+    <ul>
+        <li>Pts</li>
+    </ul> 
+    <% why.forEach(teams=>{%>
+         <ul>
+           <li><%= teams.points%></li>
+         </ul>   
+      <%})%>
+  </div>
+
+ <% } else { %>
+  <h2>hi</h2>
+ <%}%>
+</body>
+</html>

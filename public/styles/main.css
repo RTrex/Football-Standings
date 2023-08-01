@@ -99,3 +99,8 @@ img {
   height: 7rem;
   width: 7rem;
 }
+
+h1 {
+  font-size: 10rem;
+  color: #000;
+}

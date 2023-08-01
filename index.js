@@ -6,7 +6,7 @@ const app = express();
 
 const port = 3000;
 
-const clientToken = process.env.API_KEy;
+const clientToken = "46557011e371411a9d5f817ad379c808";
 
 app.use(express.static("public"));
 
@@ -33,9 +33,8 @@ app.post("/", async (req, res) => {
       console.log(req.body);
       const year = req.body.year;
       const response = await axios.get(`https://api.football-data.org/v4/competitions/PL/standings/?season=${year}`, req.body, header);
-      const result = JSON.stringify(response.data); 
-      console.log(result);
-      res.render("index.ejs", {data:result});
+      const result = response.data.standings[0].table; 
+      res.render("app.ejs", {why:result});
     } catch (error) {
       res.status(404).send(error.message);
     }
