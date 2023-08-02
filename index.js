@@ -34,8 +34,10 @@ app.post("/", async (req, res) => {
       const year = req.body.year;
       const code = req.body.code;
       const response = await axios.get(`https://api.football-data.org/v4/competitions/${code}/standings/?season=${year}`, req.body, header);
-      const result = response.data.standings[0].table; 
-      res.render("app.ejs", {why:result});
+      const result = response.data.standings[0].table;
+      const name = response.data.competition.name;
+      const logo = response.data.competition.emblem;
+      res.render("app.ejs", {why:result, league:name, pic:logo});
     } catch (error) {
       res.status(404).send(error.message);
     }

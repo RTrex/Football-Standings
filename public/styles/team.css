@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&display=swap');
-    
+   
+body {
+    height: 100%;
+    background-image : url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXO-THFEvdDOUC_pHEtTM-iGHth3fVDsv0ug&usqp=CAU");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 h2 {
     font-family: 'League Spartan', sans-serif;
     text-align: center;
@@ -16,7 +23,18 @@ ul {
     list-style-type: none;
 }
 
+hr{
+    height: 1px;
+    background-color: black;
+    border: none;
+}
+
 img {
     height: 0.9rem;
     width: 0.9rem;
+}
+
+.logo {
+    height: 1.5rem;
+    width: 1.5rem;
 }
